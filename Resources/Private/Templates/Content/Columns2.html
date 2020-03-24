@@ -1,0 +1,19 @@
+<html lang="en" data-namespace-typo3-fluid="true"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="https://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+      xmlns:flux="https://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
+      xmlns:v="https://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers">
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Configuration">
+    {f:variable(name: '_columnsCount', value: 2)}
+    <f:render partial="Content/Columns/Configuration" arguments="{_all}" />
+</f:section>
+
+<f:section name="Main">
+    {f:variable(name: '_columnsCount', value: 2)}
+    <f:render partial="Content/Columns/Main" arguments="{_all}" />
+</f:section>
+
+</html>

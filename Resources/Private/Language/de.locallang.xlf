@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='utf-8'?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2020-03-06T17:55:17Z" product-name="flux_elements">
+		<header/>
+		<body>
+			<trans-unit id="default">
+				<source>Default</source>
+				<target state="translated">Standard</target>
+			</trans-unit>
+			<trans-unit id="none">
+				<source>None</source>
+				<target state="translated">Kein</target>
+			</trans-unit>
+			<trans-unit id="content">
+				<source>Content</source>
+				<target state="translated">Inhalt</target>
+			</trans-unit>
+			<trans-unit id="primary">
+				<source>Primary</source>
+				<target state="translated">Primär</target>
+			</trans-unit>
+			<trans-unit id="secondary">
+				<source>Secondary</source>
+				<target state="translated">Sekundär</target>
+			</trans-unit>
+			<trans-unit id="complementary">
+				<source>Complementary</source>
+				<target state="translated">Komplementär</target>
+			</trans-unit>
+			<trans-unit id="custom">
+				<source>Custom</source>
+				<target state="translated">Benutzerdefiniert</target>
+			</trans-unit>
+			<trans-unit id="style">
+				<source>Style</source>
+				<target state="translated">Stil</target>
+			</trans-unit>
+
+			<trans-unit id="sheet.general">
+				<source>General</source>
+				<target state="translated">Allgemein</target>
+			</trans-unit>
+			<trans-unit id="sheet.custom">
+				<source>Custom</source>
+				<target state="translated">Benutzerdefiniert</target>
+			</trans-unit>
+			<trans-unit id="sheet.adjustment">
+				<source>Adjustment</source>
+				<target state="translated">Anpassung</target>
+			</trans-unit>
+
+			<trans-unit id="extensionConfiguration.configureFlux" approved="yes">
+				<source>Override flux configuration</source> <target state="translated">Flux-Konfiguration überschreiben</target> </trans-unit>
+			<trans-unit id="extensionConfiguration.disableFluxPageLayoutSelector" approved="yes">
+				<source>Disable flux page layout selector</source> <target state="translated">Flux-Seitenlayoutauswahl deaktivieren</target> </trans-unit>
+			<trans-unit id="be.message.config" approved="yes">
+				<source>The flux configuration (%s) has been changed by the extension flux_elements. Disable "configureFlux" in the flux_elements configuration to prevent changing it automatically in the future.</source> <target state="translated">Die flux-Konfiguration (%s) wurde von der Erweiterung flux_elements verändert. Um dies in Zukunft zu verhindern kann der Parameter "configureFlux" in der flux_elements-Konfiguration deaktiviert werden.</target> </trans-unit>
+			<trans-unit id="tca.tt_content.CType.sectionTitle" approved="yes">
+				<source>Flux elements</source> <target state="translated">Flux-Elemente</target> </trans-unit>
+
+			<trans-unit id="flux.container" approved="yes">
+				<source>Container</source> <target state="translated">Kontainer</target> </trans-unit>
+			<trans-unit id="flux.container.description" approved="yes">
+				<source>Container to hold other content elements.</source> <target state="translated">Kontainer, welcher andere Inhaltselemente aufnimmt.</target> </trans-unit>
+			<trans-unit id="flux.container.fields.settings.type" approved="yes">
+				<source>Container type</source> <target state="translated">Kontainertyp</target></trans-unit>
+			<trans-unit id="flux.container.fields.settings.type.simple" approved="yes">
+				<source>Simple</source> <target state="translated">Einfach</target></trans-unit>
+			<trans-unit id="flux.container.fields.settings.type.fluid" approved="yes">
+				<source>Fluid</source> <target state="translated">Fluid</target></trans-unit>
+			<trans-unit id="flux.container.fields.settings.type.content" approved="yes">
+				<source>Content</source> <target state="translated">Inhalt</target></trans-unit>
+			<trans-unit id="flux.container.fields.settings.type.cardGroup" approved="yes">
+				<source>Card group</source> <target state="translated">Kartengruppe</target></trans-unit>
+			<trans-unit id="flux.container.fields.settings.type.cardDeck" approved="yes">
+				<source>Card deck</source> <target state="translated">Kartenstapel</target></trans-unit>
+			<trans-unit id="flux.container.fields.settings.type.cardColumns" approved="yes">
+				<source>Card columns</source> <target state="translated">Kartenspalten</target></trans-unit>
+			<trans-unit id="flux.container.fields.settings.classes" approved="yes">
+				<source>Classes</source> <target state="translated">Klassen</target></trans-unit>
+			<trans-unit id="flux.container.fields.settings.attributes" approved="yes">
+				<source>Attributes</source> <target state="translated">Attribute</target></trans-unit>
+			<trans-unit id="flux.container.fields.settings.wrapSection" approved="yes">
+				<source>Wrap section</source> <target state="translated">Abschnitt umhüllen</target></trans-unit>
+			<trans-unit id="flux.container.fields.settings.sectionClasses" approved="yes">
+				<source>Section classes</source> <target state="translated">Abschnittsklassen</target></trans-unit>
+
+			<trans-unit id="columns.title">
+				<source>%s Columns</source>
+				<target state="translated">%s Spalten</target>
+			</trans-unit>
+			<trans-unit id="columns.description">
+				<source>%s columns to hold any type of content elements.</source>
+				<target state="translated">%s Spalten zur Aufnahme von beliebigen Inhaltselementen.</target>
+			</trans-unit>
+			<trans-unit id="columns.general.row">
+				<source>Row</source>
+				<target state="translated">Reihe</target>
+			</trans-unit>
+			<trans-unit id="columns.general.columnN">
+				<source>Column %s</source>
+				<target state="translated">Spalte %s</target>
+			</trans-unit>
+			<trans-unit id="columns.custom.rowClasses">
+				<source>Row classes</source>
+				<target state="translated">Reihen-Klassen</target>
+			</trans-unit>
+			<trans-unit id="columns.custom.columnNClasses">
+				<source>Column %s classes</source>
+				<target state="translated">Spalte %s Klassen</target>
+			</trans-unit>
+			<trans-unit id="columns.adjustment.collapseColumns">
+				<source>Collapse columns</source>
+				<target state="translated">Spalten kolabieren</target>
+			</trans-unit>
+			<trans-unit id="columns.adjustment.collapseRow">
+				<source>Collapse row</source>
+				<target state="translated">Reihen kolabieren</target>
+			</trans-unit>
+
+			<trans-unit id="columns.row.alignItemsStart">
+				<source>Align columns on top</source>
+				<target state="translated">Spalten oben ausrichten</target>
+			</trans-unit>
+			<trans-unit id="columns.row.alignItemsCenter">
+				<source>Align columns in center</source>
+				<target state="translated">Spalten mittig ausrichten</target>
+			</trans-unit>
+			<trans-unit id="columns.row.alignItemsEnd">
+				<source>Align columns on bottom</source>
+				<target state="translated">Spalten unten ausrichten</target>
+			</trans-unit>
+			<trans-unit id="columns.row.justifyContentStart">
+				<source>Justify columns at start</source>
+				<target state="translated">Spalten am Start ausrichten</target>
+			</trans-unit>
+			<trans-unit id="columns.row.justifyContentCenter">
+				<source>Justify columns in center</source>
+				<target state="translated">Spalten mittig ausrichten</target>
+			</trans-unit>
+			<trans-unit id="columns.row.justifyContentEnd">
+				<source>Justify columns at end</source>
+				<target state="translated">Spalten am Ende ausrichten</target>
+			</trans-unit>
+			<trans-unit id="columns.row.justifyContentAround">
+				<source>Justify columns with space around</source>
+				<target state="translated">Spalten mit Abstand</target>
+			</trans-unit>
+			<trans-unit id="columns.row.justifyContentBetween">
+				<source>Justify columns with space between</source>
+				<target state="translated">Abstand zwischen Spalten</target>
+			</trans-unit>
+			<trans-unit id="columns.row.noGutters">
+				<source>No gutters</source>
+				<target state="translated">Keine Spaltenabstände</target>
+			</trans-unit>
+
+			<trans-unit id="columns.column.equalWidth">
+				<source>Equal width</source>
+				<target state="translated">Gleiche Breite</target>
+			</trans-unit>
+			<trans-unit id="columns.column.fullWidth">
+				<source>Full width (100%)</source>
+				<target state="translated">Volle Breite (100%)</target>
+			</trans-unit>
+			<trans-unit id="columns.column.auto">
+				<source>Auto</source>
+				<target state="translated">Automatisch</target>
+			</trans-unit>
+			<trans-unit id="columns.column.none">
+				<source>None</source>
+				<target state="translated">Kein</target>
+			</trans-unit>
+
+			<trans-unit id="flux.accordion">
+				<source>Accordion</source>
+				<target state="translated">Akkordeon</target>
+			</trans-unit>
+			<trans-unit id="flux.accordion.description">
+				<source>Accordion to show any kind of content elements.</source>
+				<target state="translated">Akkordeon zur Darstellung von beliebigen Inhaltselementen.</target>
+			</trans-unit>
+
+			<trans-unit id="flux.tabs">
+				<source>Tabs</source>
+				<target state="translated">Reiter</target>
+			</trans-unit>
+			<trans-unit id="flux.tabs.description">
+				<source>Tabs to show any kind of content elements.</source>
+				<target state="translated">Reiter zur Darstellung von beliebigen Inhaltselementen.</target>
+			</trans-unit>
+
+			<trans-unit id="flux.tileUnit">
+				<source>Tile unit</source>
+				<target state="translated">Kacheleinheit</target>
+			</trans-unit>
+			<trans-unit id="flux.tileUnit.description">
+				<source>Two columns to hold content elements having a tile layout.</source>
+				<target state="translated">Zwei Spalten zur Aufnahme von Inhaltselementen, welche ein Kachellayout verwenden.</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

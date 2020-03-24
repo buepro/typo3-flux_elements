@@ -1,0 +1,40 @@
+{
+    "name": "buepro/typo3-flux-elements",
+    "type": "typo3-cms-extension",
+    "description": "TYPO3 extension providing content elements powered by flux",
+    "keywords": [
+        "TYPO3 CMS",
+        "flux",
+        "pizpalue"
+    ],
+    "homepage": "https://github.com/buepro/typo3-flux_elements",
+    "authors": [
+        {
+            "name": "Roman Büchler",
+            "email": "rb@buechler.pro",
+            "homepage": "https://www.buechler.pro/",
+            "role": "Developer"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "typo3/cms-core": "9.5.0 - 10.2.99",
+        "fluidtypo3/flux": "^9.3.2"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Buepro\\FluxElements\\": "Classes"
+        }
+    },
+    "replace": {
+        "typo3-ter/flux_elements": "self.version"
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "flux_elements"
+        }
+    }
+}

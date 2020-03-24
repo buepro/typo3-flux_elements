@@ -1,0 +1,62 @@
+<html lang="en" data-namespace-typo3-fluid="true"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="https://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+      xmlns:flux="https://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
+      xmlns:v="https://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers">
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Configuration">
+    <flux:form id="accordion">
+        <flux:form.option.icon>EXT:flux_elements/Resources/Public/Icons/Accordion.svg</flux:form.option.icon>
+        <flux:field type="select"
+                    config="{items: {
+                0: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:default', 1: null},
+                1: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:primary', 1: 'fe-accordion-primary'},
+                2: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:secondary', 1: 'fe-accordion-secondary'},
+                3: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:complementary', 1: 'fe-accordion-complementary'},
+                4: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:custom', 1: 'fe-accordion-custom'}
+            }}"
+                    name="settings.style"
+                    label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:style"
+        />
+    </flux:form>
+    <flux:grid>
+        <flux:grid.row>
+            <flux:grid.column name="content" colPos="1" label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:content" />
+        </flux:grid.row>
+    </flux:grid>
+</f:section>
+
+<f:section name="Main">
+    {flux:content.get(area: 'content', render: 0) -> f:variable(name: '_items')}
+    <div class="accordion{f:if(condition: settings.style, then: ' {settings.style}')}"
+         id="accordion-{record.uid}">
+        <f:for each="{_items}" as="_item" iteration="iterator">
+            <div class="accordion-item card">
+                <div id="accordion-heading-{_item.uid}" class="accordion-header card-header">
+                    <h4 class="accordion-title">
+                        <a class="accordion-title-link {f:if(condition:'{iterator.index}!=0', then:'collapsed')}"
+                           href="#accordion-{_item.uid}"
+                           data-toggle="collapse" data-parent="#accordion-{record.uid}"
+                           aria-expand="{f:if(condition:'{iterator.index}==0', then:'true', else:'false')}"
+                           aria-controls="accordion-{_item.uid}">
+                            <span class="accordion-title-link-text">{_item.header}</span>
+                            <span class="accordion-title-link-state"></span>
+                        </a>
+                    </h4>
+                </div>
+                <div id="accordion-{_item.uid}"
+                     class="accordion-collapse collapse {f:if(condition:'{iterator.index}==0', then:'show')}"
+                     aria-labelledby="accordion-heading-{_item.uid}"
+                     data-parent="#accordion-{record.uid}">
+                    <div class="fe-accordion-body accordion-body card-body">
+                        <v:content.render contentUids="{0: _item.uid}"/>
+                    </div>
+                </div>
+            </div>
+        </f:for>
+    </div>
+</f:section>
+
+</html>

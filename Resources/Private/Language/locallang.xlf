@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2020-03-06T17:55:17Z"
+		  product-name="flux_elements">
+		<header/>
+		<body>
+			<trans-unit id="default">
+				<source>Default</source>
+			</trans-unit>
+			<trans-unit id="none">
+				<source>None</source>
+			</trans-unit>
+			<trans-unit id="content">
+				<source>Content</source>
+			</trans-unit>
+			<trans-unit id="primary">
+				<source>Primary</source>
+			</trans-unit>
+			<trans-unit id="secondary">
+				<source>Secondary</source>
+			</trans-unit>
+			<trans-unit id="complementary">
+				<source>Complementary</source>
+			</trans-unit>
+			<trans-unit id="custom">
+				<source>Custom</source>
+			</trans-unit>
+			<trans-unit id="style">
+				<source>Style</source>
+			</trans-unit>
+
+			<trans-unit id="sheet.general">
+				<source>General</source>
+			</trans-unit>
+			<trans-unit id="sheet.custom">
+				<source>Custom</source>
+			</trans-unit>
+			<trans-unit id="sheet.adjustment">
+				<source>Adjustment</source>
+			</trans-unit>
+
+			<trans-unit id="extensionConfiguration.configureFlux">
+				<source>Override flux configuration</source>
+			</trans-unit>
+			<trans-unit id="extensionConfiguration.disableFluxPageLayoutSelector">
+				<source>Disable flux page layout selector</source>
+			</trans-unit>
+			<trans-unit id="be.message.config">
+				<source>The flux configuration (%s) has been changed by the extension flux_elements. Disable "configureFlux" in the flux_elements configuration to prevent changing it automatically in the future.</source>
+			</trans-unit>
+			<trans-unit id="tca.tt_content.CType.sectionTitle">
+				<source>Flux elements</source>
+			</trans-unit>
+
+			<trans-unit id="flux.container">
+				<source>Container</source>
+			</trans-unit>
+			<trans-unit id="flux.container.description">
+				<source>Container to hold other content elements.</source>
+			</trans-unit>
+			<trans-unit id="flux.container.fields.settings.type">
+				<source>Container type</source>
+			</trans-unit>
+			<trans-unit id="flux.container.fields.settings.type.simple">
+				<source>Simple</source>
+			</trans-unit>
+			<trans-unit id="flux.container.fields.settings.type.fluid">
+				<source>Fluid</source>
+			</trans-unit>
+			<trans-unit id="flux.container.fields.settings.type.content">
+				<source>Content</source>
+			</trans-unit>
+			<trans-unit id="flux.container.fields.settings.type.cardGroup">
+				<source>Card group</source>
+			</trans-unit>
+			<trans-unit id="flux.container.fields.settings.type.cardDeck">
+				<source>Card deck</source>
+			</trans-unit>
+			<trans-unit id="flux.container.fields.settings.type.cardColumns">
+				<source>Card columns</source>
+			</trans-unit>
+			<trans-unit id="flux.container.fields.settings.classes">
+				<source>Classes</source>
+			</trans-unit>
+			<trans-unit id="flux.container.fields.settings.attributes">
+				<source>Attributes</source>
+			</trans-unit>
+			<trans-unit id="flux.container.fields.settings.wrapSection">
+				<source>Wrap section</source>
+			</trans-unit>
+			<trans-unit id="flux.container.fields.settings.sectionClasses">
+				<source>Section classes</source>
+			</trans-unit>
+
+			<trans-unit id="columns.title">
+				<source>%s Columns</source>
+			</trans-unit>
+			<trans-unit id="columns.description">
+				<source>%s columns to hold any type of content elements.</source>
+			</trans-unit>
+			<trans-unit id="columns.general.row">
+				<source>Row</source>
+			</trans-unit>
+			<trans-unit id="columns.general.columnN">
+				<source>Column %s</source>
+			</trans-unit>
+			<trans-unit id="columns.custom.rowClasses">
+				<source>Row classes</source>
+			</trans-unit>
+			<trans-unit id="columns.custom.columnNClasses">
+				<source>Column %s classes</source>
+			</trans-unit>
+			<trans-unit id="columns.adjustment.collapseColumns">
+				<source>Collapse columns</source>
+			</trans-unit>
+			<trans-unit id="columns.adjustment.collapseRow">
+				<source>Collapse row</source>
+			</trans-unit>
+
+			<trans-unit id="columns.row.alignItemsStart">
+				<source>Align columns on top</source>
+			</trans-unit>
+			<trans-unit id="columns.row.alignItemsCenter">
+				<source>Align columns in center</source>
+			</trans-unit>
+			<trans-unit id="columns.row.alignItemsEnd">
+				<source>Align columns on bottom</source>
+			</trans-unit>
+			<trans-unit id="columns.row.justifyContentStart">
+				<source>Justify columns at start</source>
+			</trans-unit>
+			<trans-unit id="columns.row.justifyContentCenter">
+				<source>Justify columns in center</source>
+			</trans-unit>
+			<trans-unit id="columns.row.justifyContentEnd">
+				<source>Justify columns at end</source>
+			</trans-unit>
+			<trans-unit id="columns.row.justifyContentAround">
+				<source>Justify columns with space around</source>
+			</trans-unit>
+			<trans-unit id="columns.row.justifyContentBetween">
+				<source>Justify columns with space between</source>
+			</trans-unit>
+			<trans-unit id="columns.row.noGutters">
+				<source>No gutters</source>
+			</trans-unit>
+
+			<trans-unit id="columns.column.equalWidth">
+				<source>Equal width</source>
+			</trans-unit>
+			<trans-unit id="columns.column.fullWidth">
+				<source>Full width (100%)</source>
+			</trans-unit>
+			<trans-unit id="columns.column.auto">
+				<source>Auto</source>
+			</trans-unit>
+			<trans-unit id="columns.column.none">
+				<source>None</source>
+			</trans-unit>
+
+			<trans-unit id="flux.accordion">
+				<source>Accordion</source>
+			</trans-unit>
+			<trans-unit id="flux.accordion.description">
+				<source>Accordion to show any kind of content elements.</source>
+			</trans-unit>
+
+			<trans-unit id="flux.tabs">
+				<source>Tabs</source>
+			</trans-unit>
+			<trans-unit id="flux.tabs.description">
+				<source>Tabs to show any kind of content elements.</source>
+			</trans-unit>
+
+			<trans-unit id="flux.tileUnit">
+				<source>Tile unit</source>
+			</trans-unit>
+			<trans-unit id="flux.tileUnit.description">
+				<source>Two columns to hold content elements having a tile layout.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
