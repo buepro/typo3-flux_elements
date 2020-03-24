@@ -1,0 +1,6 @@
+# cat=basic; type=boolean; label=LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:extensionConfiguration.configureFlux
+configureFlux = 1
+
+# cat=basic; type=boolean; label=LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:extensionConfiguration.disableFluxPageLayoutSelector
+disableFluxPageLayoutSelector = 1
+

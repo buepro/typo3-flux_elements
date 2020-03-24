@@ -1,0 +1,32 @@
+<html lang="en" data-namespace-typo3-fluid="true"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="https://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+      xmlns:flux="https://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
+      xmlns:v="https://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers">
+
+<flux:form.sheet name="image" label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:sheet.image">
+    <f:render partial="Field/InlineImage" arguments="{
+                _name: 'settings.image.reference',
+                _label: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.card.fields.image',
+                _maxitems: 1
+            }" />
+    <flux:field type="input"
+                name="settings.image.width"
+                label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:width"
+    />
+    <flux:field type="radio"
+                name="settings.image.position"
+                label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.card.fields.image.position"
+                config="{
+                    default: 'top',
+                    items: {
+                        0: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:top', 1: 'top'},
+                        1: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:bottom', 1: 'bottom'},
+                        2: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:left', 1: 'left'},
+                        3: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:right', 1: 'right'},
+                        4: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:below', 1: 'below'}
+                    }
+                }"
+    />
+</flux:form.sheet>
+</html>

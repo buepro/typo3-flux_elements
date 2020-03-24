@@ -1,0 +1,144 @@
+<html lang="en" data-namespace-typo3-fluid="true"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="https://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+      xmlns:flux="https://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
+      xmlns:v="https://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers">
+
+<f:comment>
+    -------------------------------------------------------------------------------------------------------------------
+                                  Initializes _formName, _formLabel, _iconName
+    -------------------------------------------------------------------------------------------------------------------
+</f:comment>
+
+{f:variable(name: '_formName', value: _formDefinitions.name)}
+{f:variable(name: '_formName', value: 'column{_columnsCount}')
+    -> v:condition.variable.isNull(value: _formDefinitions.name)}
+
+{f:variable(name: '_iconName', value: _formDefinitions.icon)}
+{f:variable(name: '_iconName', value: 'EXT:flux_elements/Resources/Public/Icons/Columns{_columnsCount}.svg')
+    -> v:condition.variable.isNull(value: _formDefinitions.icon)}
+
+<f:comment>
+    -------------------------------------------------------------------------------------------------------------------
+                                             Configures form and grid
+    -------------------------------------------------------------------------------------------------------------------
+</f:comment>
+
+<flux:form id="{_formName}" label="{_formDefinitions.label}" description="{_formDefinitions.description}">
+    <flux:form.option.icon>{_iconName}</flux:form.option.icon>
+    <f:render section="General" arguments="{_columnsCount: _columnsCount}" />
+    <f:render section="Custom" arguments="{_columnsCount: _columnsCount, _fieldDefaults: _fieldDefaults}" />
+    <f:render section="Adjustment" arguments="{_fieldDefaults: _fieldDefaults}" />
+</flux:form>
+<flux:grid>
+    <flux:grid.row>
+        <v:iterator.loop count="{_columnsCount}" iteration="iterator">
+            <f:variable name="_name">column{iterator.cycle}</f:variable>
+            {f:translate(key: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.general.columnN')
+                -> f:format.printf(arguments: {0: iterator.cycle})
+                -> f:variable(name: '_label')}
+            <flux:grid.column name="{_name}" colPos="{iterator.cycle}" label="{_label}" />
+        </v:iterator.loop>
+    </flux:grid.row>
+</flux:grid>
+
+<f:comment>
+    -------------------------------------------------------------------------------------------------------------------
+                                                     Sections
+    -------------------------------------------------------------------------------------------------------------------
+</f:comment>
+
+<f:section name="General">
+    <v:variable.set name="_rowItems" value="{
+        0: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:default', 1: null},
+        1: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.row.alignItemsStart', 1: 'align-items-start'},
+        2: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.row.alignItemsCenter', 1: 'align-items-center'},
+        3: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.row.alignItemsEnd', 1: 'align-items-end'},
+        4: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.row.justifyContentStart', 1: 'justify-content-start'},
+        5: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.row.justifyContentCenter', 1: 'justify-content-center'},
+        6: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.row.justifyContentEnd', 1: 'justify-content-end'},
+        7: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.row.justifyContentAround', 1: 'justify-content-around'},
+        8: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.row.justifyContentBetween', 1: 'justify-content-between'},
+        9: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.row.noGutters', 1: 'no-gutters'},
+        10: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:none', 1: 'none'}
+    }" />
+    <v:variable.set name="_columnItems" value="{
+        1: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.column.equalWidth', 1: null},
+        2: {0: '1/12 (8%)', 1: 1},
+        3: {0: '2/12 (17%)', 1: 2},
+        4: {0: '3/12 (25%)', 1: 3},
+        5: {0: '4/12 (33%)', 1: 4},
+        6: {0: '5/12 (42%)', 1: 5},
+        7: {0: '6/12 (50%)', 1: 6},
+        8: {0: '7/12 (58%)', 1: 7},
+        9: {0: '8/12 (67%)', 1: 8},
+        10: {0: '9/12 (75%)', 1: 9},
+        11: {0: '10/12 (83%)', 1: 10},
+        12: {0: '11/12 (92%)', 1: 11},
+        13: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.column.fullWidth', 1: 12},
+        14: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.column.auto', 1: 'auto'},
+        15: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.column.none', 1: 'none'}
+    }" />
+    <f:variable name="_screenBreakpoint" value="{
+        0: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:none', 1: 'none'},
+        1: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:screenBreakpoint.sm', 1: 'sm'},
+        2: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:screenBreakpoint.md', 1: 'md'},
+        3: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:screenBreakpoint.lg', 1: 'lg'},
+        4: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:screenBreakpoint.xl', 1: 'xl'}
+    }" />
+    <flux:form.sheet name="general" label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:sheet.general">
+        <flux:field type="select" name="settings.general.row"
+                    label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.general.row"
+                    config="{items: _rowItems}" />
+        <v:iterator.loop count="{_columnsCount}" iteration="iterator">
+            <f:variable name="_name">settings.general.column{iterator.cycle}</f:variable>
+            {f:translate(key: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.general.columnN')
+                -> f:format.printf(arguments: {0: iterator.cycle})
+                -> f:variable(name: '_label')}
+            <flux:field type="select" name="{_name}" label="{_label}" config="{items: _columnItems}" />
+        </v:iterator.loop>
+        <flux:field type="select" name="settings.general.screenBreakpoint"
+                    label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:screenBreakpoint"
+                    config="{items: _screenBreakpoint, default: 'md'}" />
+    </flux:form.sheet>
+</f:section>
+
+<f:section name="Custom">
+    <flux:form.sheet name="custom" label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:sheet.custom">
+        {f:variable(name: '_rowDefaultClasses', value: 'fe-tiles no-gutters')
+            -> f:if(condition: '{settings.general.type} == "tile"')}
+        <flux:field type="input"
+                    name="settings.custom.row.classes"
+                    label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.custom.rowClasses"
+                    config="{
+                        default: _fieldDefaults.custom.row.classes
+                    }" />
+        <v:iterator.loop count="{_columnsCount}" iteration="iterator">
+            <f:variable name="_name">settings.custom.column{iterator.cycle}.classes</f:variable>
+            {f:translate(key: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.custom.columnNClasses')
+                -> f:format.printf(arguments: {0: iterator.cycle})
+                -> f:variable(name: '_label')}
+            <flux:field type="input" name="{_name}" label="{_label}"
+                        config="{
+                            default: _fieldDefaults.custom.columns.classes
+                        }" />
+        </v:iterator.loop>
+    </flux:form.sheet>
+</f:section>
+
+<f:section name="Adjustment">
+    <flux:form.sheet name="adjustment" label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:sheet.adjustment">
+        {f:variable(name: '_collapseRow', value: _fieldDefaults.adjust.collapseRow)}
+        {f:variable(name: '_collapseRow', value: 1) -> v:condition.variable.isNull(value: _fieldDefaults.adjust.collapseRow)}
+        {f:variable(name: '_collapseColumns', value: _fieldDefaults.adjust.collapseColumns)}
+        {f:variable(name: '_collapseColumns', value: 1) -> v:condition.variable.isNull(value: _fieldDefaults.adjust.collapseColumns)}
+        <flux:field type="check" name="settings.adjustment.collapseRow"
+                    label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.adjustment.collapseRow"
+                    config="{default: _collapseRow}" />
+        <flux:field type="check" name="settings.adjustment.collapseColumns"
+                    label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.adjustment.collapseColumns"
+                    config="{default: _collapseColumns}" />
+    </flux:form.sheet>
+</f:section>
+
+</html>

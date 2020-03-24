@@ -1,0 +1,25 @@
+<html lang="en" data-namespace-typo3-fluid="true"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="https://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+      xmlns:flux="https://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
+      xmlns:v="https://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers">
+
+<div class="row no-gutters">
+    <f:if condition="{settings.image.position} == left">
+        <div class="col-md-4 fec-image-col">
+            <f:render partial="Content/Card/Main/Parts/Image" arguments="{_all}" />
+        </div>
+        <div class="col-md-8 fec-content-col">
+            <f:render partial="Content/Card/Main/Parts/Body" arguments="{_all}" />
+        </div>
+    </f:if>
+    <f:if condition="{settings.image.position} == right">
+        <div class="col-md-8 fec-content-col">
+            <f:render partial="Content/Card/Main/Parts/Body" arguments="{_all}" />
+        </div>
+        <div class="col-md-4 fec-image-col">
+            <f:render partial="Content/Card/Main/Parts/Image" arguments="{_all}" />
+        </div>
+    </f:if>
+</div>
+</html>

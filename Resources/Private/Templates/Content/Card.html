@@ -1,0 +1,72 @@
+<html lang="en" data-namespace-typo3-fluid="true"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="https://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+      xmlns:flux="https://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
+      xmlns:v="https://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers">
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Configuration">
+    <flux:form id="card">
+        <flux:form.option.icon>EXT:flux_elements/Resources/Public/Icons/Card.svg</flux:form.option.icon>
+        <f:render partial="Content/Card/Configuration/Sheets/Text" arguments="{_all}" />
+        <f:render partial="Content/Card/Configuration/Sheets/Image" arguments="{_all}" />
+        <f:render partial="Content/Card/Configuration/Sheets/Custom" arguments="{_all}" />
+    </flux:form>
+    <flux:grid>
+        <flux:grid.row>
+            <flux:grid.column name="content" colPos="1" label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.card.grid.optionalContent" />
+        </flux:grid.row>
+        <flux:grid.row>
+            <flux:grid.column name="imageContent" colPos="2" label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.card.grid.optionalImageContent" />
+        </flux:grid.row>
+    </flux:grid>
+</f:section>
+
+<f:section name="Preview">
+    <span>{settings.title.text}</span>
+</f:section>
+
+<f:section name="Main">
+    {f:variable(name: '_availableBorders', value:'')}
+    <f:if condition="{settings.borders}">
+        <f:for each="{settings.borders}" as="_item">
+            {v:iterator.merge(a: _availableBorders, b: _item) -> f:variable(name: '_availableBorders')}
+        </f:for>
+        {f:variable(name: '_hasHeader', value: 1) -> v:condition.type.isArray(value: _availableBorders.header)}
+        {f:variable(name: '_hasFooter', value: 1) -> v:condition.type.isArray(value: _availableBorders.footer)}
+    </f:if>
+    {v:content.resources.fal(field: 'settings.image.reference')
+        -> v:iterator.first()
+        -> f:variable(name: '_image')}
+    {f:variable(name: '_cardClasses', value: ' {settings.card.classes}') -> f:if(condition: settings.card.classes)}
+    {f:variable(name: '_headerClasses', value: ' {settings.header.classes}') -> f:if(condition: settings.header.classes)}
+    {f:variable(name: '_footerClasses', value: ' {settings.footer.classes}') -> f:if(condition: settings.footer.classes)}
+    <div class="fe-card fec-{settings.image.position} card{_cardClasses}">
+        <f:if condition="{_hasHeader}">
+            <div class="card-header{_headerClasses}">
+                <f:for each="{settings.borders}" as="_item">
+                    {_item.header.text -> f:format.html() -> v:condition.type.isArray(value: _item.header)}
+                </f:for>
+            </div>
+        </f:if>
+        <f:if condition="{settings.image.position} == 'top' || {settings.image.position} == 'bottom'">
+            <f:render partial="Content/Card/Main/Vertical" arguments="{_all}" />
+        </f:if>
+        <f:if condition="{settings.image.position} == 'left' || {settings.image.position} == 'right'">
+            <f:render partial="Content/Card/Main/Horizontal" arguments="{_all}" />
+        </f:if>
+        <f:if condition="{settings.image.position} == 'below'">
+            <f:render partial="Content/Card/Main/Stack" arguments="{_all}" />
+        </f:if>
+        <f:if condition="{_hasFooter}">
+            <div class="card-footer{_footerClasses}">
+                <f:for each="{settings.borders}" as="_item">
+                    {_item.footer.text -> f:format.html() -> v:condition.type.isArray(value: _item.footer)}
+                </f:for>
+            </div>
+        </f:if>
+    </div>
+</f:section>
+
+</html>

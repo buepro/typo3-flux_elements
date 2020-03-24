@@ -1,0 +1,25 @@
+<html lang="en" data-namespace-typo3-fluid="true"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="https://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+      xmlns:flux="https://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
+      xmlns:v="https://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers">
+
+<f:if condition="{_image}">
+    {f:variable(name: '_imageClasses', value: 'card-img')}
+    <f:if condition="{settings.image.position} == 'top' || {settings.image.position} == 'bottom'">
+        {f:variable(name: '_imageClasses', value: 'card-img-{settings.image.position}')}
+    </f:if>
+    <f:if condition="{settings.image.classes}">
+        {f:variable(name: '_imageClasses', value: '{_imageClasses} {settings.image.classes}')}
+    </f:if>
+    <f:image class="{_imageClasses}" treatIdAsReference="1" src="{_image.id}" crop="{_image.crop}"
+             title="{_image.title}" alt="{_image.alternative}" width="{settings.image.width}"/>
+</f:if>
+{flux:content.get(area: 'imageContent', render: 0) -> f:variable(name: '_imageContentItems')}
+<f:if condition="{_imageContentItems}">
+    <div class="fec-image-wrap">
+        <flux:content.render area="imageContent" />
+    </div>
+</f:if>
+
+</html>

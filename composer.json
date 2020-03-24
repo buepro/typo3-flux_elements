@@ -1,0 +1,44 @@
+{
+    "name": "buepro/typo3-flux_elements",
+    "type": "typo3-cms-extension",
+    "description": "TYPO3 extension providing content elements powered by flux and bootstrap. Available elements: container, columns, tabs, accordion, tile unit and card.",
+    "keywords": [
+        "TYPO3 CMS",
+        "flux",
+        "grid",
+        "structure",
+        "element",
+        "pizpalue"
+    ],
+    "homepage": "https://github.com/buepro/typo3-flux_elements",
+    "authors": [
+        {
+            "name": "Roman Büchler",
+            "email": "rb@buechler.pro",
+            "homepage": "https://www.buechler.pro/",
+            "role": "Developer"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "typo3/cms-core": "9.5.0 - 10.2.99",
+        "fluidtypo3/flux": "^9.3.2"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Buepro\\FluxElements\\": "Classes"
+        }
+    },
+    "replace": {
+        "buepro/flux-elements": "self.version",
+        "typo3-ter/flux-elements": "self.version"
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "flux_elements"
+        }
+    }
+}

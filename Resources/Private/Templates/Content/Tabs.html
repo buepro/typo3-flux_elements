@@ -1,0 +1,64 @@
+<html lang="en" data-namespace-typo3-fluid="true"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="https://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+      xmlns:flux="https://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
+      xmlns:v="https://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers">
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Configuration">
+    <flux:form id="tabs">
+        <flux:form.option.icon>EXT:flux_elements/Resources/Public/Icons/Tabs.svg</flux:form.option.icon>
+        <flux:field type="select"
+                    config="{items: {
+                0: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:default', 1: null},
+                1: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:primary', 1: 'fe-tabs-primary'},
+                2: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:secondary', 1: 'fe-tabs-secondary'},
+                3: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:complementary', 1: 'fe-tabs-complementary'},
+                4: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:custom', 1: 'fe-tabs-custom'}
+            }}"
+                    name="settings.style"
+                    label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:style"
+        />
+    </flux:form>
+    <flux:grid>
+        <flux:grid.row>
+            <flux:grid.column name="content" colPos="1" label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:content" />
+        </flux:grid.row>
+    </flux:grid>
+</f:section>
+
+<f:section name="Main">
+    {flux:content.get(area: 'content', render: 0) -> f:variable(name: '_items')}
+    <div id="tabpanel-{record.uid}"
+         class="fe-tabpanel tabpanel {f:if(condition: settings.style, then: ' {settings.style}')}"
+         role="tabpanel">
+        <ul class="nav nav-tabs" role="tablist">
+            <f:for each="{_items}" as="_item" iteration="iterator">
+                <li class="nav-item">
+                    <a id="tab-{_item.uid}"
+                       class="nav-link {f:if(condition:'{iterator.index}==0',then:'active')}"
+                       href="#tab-content-{_item.uid}"
+                       data-toggle="tab"
+                       role="tab"
+                       aria-controls="tab-content-{_item.uid}"
+                       aria-selected="{f:if(condition:'{iterator.index}==0',then:'true',else:'false')}">
+                        {_item.header}
+                    </a>
+                </li>
+            </f:for>
+        </ul>
+        <div class="tab-content">
+            <f:for each="{_items}" as="_item" iteration="iterator">
+                <div id="tab-content-{_item.uid}"
+                     class="fe-tab-pane tab-pane fade {f:if(condition:'{iterator.index}==0',then:'show active')}"
+                     role="tabpanel"
+                     aria-labelledby="tab-{_item.uid}">
+                    <v:content.render contentUids="{0: _item.uid}"/>
+                </div>
+            </f:for>
+        </div>
+    </div>
+</f:section>
+
+</html>

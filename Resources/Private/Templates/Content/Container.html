@@ -1,0 +1,79 @@
+<html lang="en" data-namespace-typo3-fluid="true"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="https://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+      xmlns:flux="https://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
+      xmlns:v="https://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers">
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Configuration">
+    <flux:form id="container">
+        <flux:form.option.icon>EXT:flux_elements/Resources/Public/Icons/Container.svg</flux:form.option.icon>
+        <flux:field type="select" name="settings.type"
+                    label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.type"
+                    config="{items: {
+                0: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.type.simple', 1: 'simple'},
+                1: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.type.fluid', 1: 'fluid'},
+                2: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.type.content', 1: 'content'},
+                3: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.type.cardGroup', 1: 'cardGroup'},
+                4: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.type.cardDeck', 1: 'cardDeck'},
+                5: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.type.cardColumns', 1: 'cardColumns'}
+            }}"
+        />
+        <flux:field type="input" name="settings.classes" label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.classes" />
+        <flux:field type="input" name="settings.attributes" label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.attributes" />
+        <flux:field type="check" name="settings.wrapSection" onChange="reload"
+                    label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.wrapSection" />
+        <flux:field type="input" name="settings.sectionClasses" displayCond="FIELD:settings.wrapSection:REQ:true"
+                    label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.sectionClasses" />
+    </flux:form>
+    <flux:grid>
+        <flux:grid.row>
+            <flux:grid.column name="content" colPos="1" label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:content" />
+        </flux:grid.row>
+    </flux:grid>
+</f:section>
+
+<f:section name="Main">
+    <f:if condition="{settings.wrapSection} === '1'">
+        <f:then>
+            {settings.sectionClasses -> v:format.trim() -> v:format.prepend(add: ' ')
+                -> f:variable(name: '_sectionClasses') -> f:if(condition: settings.sectionClasses)}
+            <div class="section section-default{_sectionClasses}">
+                <f:render section="inner" arguments="{_all}" />
+            </div>
+        </f:then>
+        <f:else>
+            <f:render section="inner" arguments="{_all}" />
+        </f:else>
+    </f:if>
+</f:section>
+
+<f:section name="inner">
+    {settings.classes -> v:format.trim() -> v:format.prepend(add: ' ') -> f:variable(name: '_classes')
+        -> f:if(condition: settings.classes)}
+    {settings.attributes -> v:format.trim() -> v:format.prepend(add: ' ') -> f:variable(name: '_attributes')
+        -> f:if(condition: settings.attributes)}
+    <f:switch expression="{settings.type}">
+        <f:case value="fluid">
+            {_classes -> v:format.append(add: ' container-fluid') -> f:variable(name: '_classes')}
+        </f:case>
+        <f:case value="content">
+            {_classes -> v:format.append(add: ' container') -> f:variable(name: '_classes')}
+        </f:case>
+        <f:case value="cardGroup">
+            {_classes -> v:format.append(add: ' card-group') -> f:variable(name: '_classes')}
+        </f:case>
+        <f:case value="cardDeck">
+            {_classes -> v:format.append(add: ' card-deck') -> f:variable(name: '_classes')}
+        </f:case>
+        <f:case value="cardColumns">
+            {_classes -> v:format.append(add: ' card-columns') -> f:variable(name: '_classes')}
+        </f:case>
+    </f:switch>
+    <div class="fe-container{_classes}"{_attributes -> f:format.htmlentitiesDecode()}>
+        <flux:content.render area="content" />
+    </div>
+</f:section>
+
+</html>

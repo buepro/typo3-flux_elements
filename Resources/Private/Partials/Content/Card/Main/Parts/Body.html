@@ -1,0 +1,46 @@
+<html lang="en" data-namespace-typo3-fluid="true"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="https://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+      xmlns:flux="https://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
+      xmlns:v="https://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers">
+
+
+<f:if condition="{settings.image.position} == 'below'">
+    <f:then>
+        <f:render section="BodyContent" arguments="{_all}" />
+    </f:then>
+    <f:else>
+        {f:variable(name: '_bodyClasses', value: ' {settings.body.classes}') -> f:if(condition: settings.body.classes)}
+        <div class="card-body{_bodyClasses}">
+            <f:render section="BodyContent" arguments="{_all}" />
+        </div>
+    </f:else>
+</f:if>
+
+<f:section name="BodyContent">
+    <f:if condition="{settings.title.link}">
+        <f:then>
+            <f:link.typolink parameter="{settings.title.link}">
+                <f:render section="TitleText" arguments="{settings: settings}" />
+            </f:link.typolink>
+        </f:then>
+        <f:else>
+            <f:render section="TitleText" arguments="{settings: settings}" />
+        </f:else>
+    </f:if>
+    {settings.text -> f:format.html()}
+    {flux:content.get(area: 'content', render: 0) -> f:variable(name: '_contentItems')}
+    <f:if condition="{_contentItems}">
+        <div class="fec-content-wrap">
+            <flux:content.render area="content" />
+        </div>
+    </f:if>
+</f:section>
+
+<f:section name="TitleText">
+    {f:variable(name: '_position', value: ' text-{settings.title.position}') -> f:if(condition: settings.title.position)}
+    {f:variable(name: '_titleClasses', value: ' {settings.title.classes}') -> f:if(condition: settings.title.classes)}
+    <{settings.title.layout} class="card-title{_position}{_titleClasses}">{settings.title.text}</{settings.title.layout}>
+</f:section>
+
+</html>
