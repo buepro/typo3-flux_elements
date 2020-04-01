@@ -21,8 +21,8 @@
     ],
     "license": "MIT",
     "require": {
-        "typo3/cms-core": "9.5.0 - 10.2.99",
-        "fluidtypo3/flux": "^9.3.2"
+        "typo3/cms-core": "^9.5 || ^10",
+        "fluidtypo3/flux": "^9"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master"
@@ -33,7 +33,7 @@
         }
     },
     "replace": {
-        "buepro/flux-elements": "self.version",
+        "flux_elements": "self.version",
         "typo3-ter/flux-elements": "self.version"
     },
     "extra": {

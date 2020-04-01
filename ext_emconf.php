@@ -8,18 +8,18 @@
  */
 
 $EM_CONF[$_EXTKEY] = [
-    'title'            => 'Flux element',
+    'title'            => 'Flux elements',
     'description'      => 'Provides content elements powered by flux and bootstrap. Available elements: container, columns, tabs, accordion, tile unit and card.',
     'category'         => 'misc',
-    'version'          => '1.0.0',
+    'version'          => '1.0.1',
     'state'            => 'stable',
     'clearCacheOnLoad' => 1,
     'author'           => 'Roman Büchler',
     'author_email'     => 'rb@buechler.pro',
     'constraints'      => [
         'depends'   => [
-            'typo3'                 => '9.5.0-10.2.99',
-            'flux'                  => '9.3.2-9.99.99',
+            'typo3'                 => '9.5.0-10.99.99',
+            'flux'                  => '9.3.0-9.99.99',
         ],
         'conflicts' => [],
         'suggests'  => [
