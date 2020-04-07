@@ -19,7 +19,7 @@
             "role": "Developer"
         }
     ],
-    "license": "MIT",
+    "license": ["GPL-2.0-or-later"],
     "require": {
         "typo3/cms-core": "^9.5 || ^10",
         "fluidtypo3/flux": "^9"
