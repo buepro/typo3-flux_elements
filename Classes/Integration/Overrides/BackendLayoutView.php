@@ -18,6 +18,7 @@ class BackendLayoutView extends \FluidTYPO3\Flux\Integration\Overrides\BackendLa
      * Workaround for flux issue #1743.
      * Combines items in the colPos field from tt_content with the ones from gridelements and flux.
      *
+     * @todo Becomes obsolete with core change as proposed under https://review.typo3.org/c/Packages/TYPO3.CMS/+/64068
      * @param array $parameters
      * @param null $ref
      */
