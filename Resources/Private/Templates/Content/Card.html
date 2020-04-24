@@ -36,7 +36,7 @@
         {f:variable(name: '_hasHeader', value: 1) -> v:condition.type.isArray(value: _availableBorders.header)}
         {f:variable(name: '_hasFooter', value: 1) -> v:condition.type.isArray(value: _availableBorders.footer)}
     </f:if>
-    {v:content.resources.fal(field: 'settings.image.reference')
+    {v:content.resources.fal(field: 'tx_fluxelements_image')
         -> v:iterator.first()
         -> f:variable(name: '_image')}
     {f:variable(name: '_cardClasses', value: ' {settings.card.classes}') -> f:if(condition: settings.card.classes)}

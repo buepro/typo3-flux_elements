@@ -39,3 +39,12 @@ for the `colPos` field from `tt_content` in the configuration module. It should 
    :alt: TCA setting for itemsProcFunc
 
    TCA setting for itemsProcFunc
+
+Update
+======
+
+1.1.0
+-----
+
+When updating to version 1.1.0 the `Upgrade wizard` from the `Upgrade` module should be executed. This ensures the
+card content element to be updated correctly.

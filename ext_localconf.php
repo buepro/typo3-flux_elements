@@ -26,4 +26,10 @@ defined('TYPO3_MODE') || die('Access denied.');
         $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['GLOBAL']['extTablesInclusion-PostProcessing']['flux_elements'] =
             \Buepro\FluxElements\Integration\HookSubscribers\TableConfigurationPostProcessor::class;
     }
+
+    /**
+     * Upgrade wizards
+     */
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\Buepro\FluxElements\Updates\CardContentElementUpdate::class]
+        = \Buepro\FluxElements\Updates\CardContentElementUpdate::class;
 })();
