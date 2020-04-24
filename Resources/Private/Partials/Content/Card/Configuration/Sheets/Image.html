@@ -5,11 +5,10 @@
       xmlns:v="https://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers">
 
 <flux:form.sheet name="image" label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:sheet.image">
-    <f:render partial="Field/InlineImage" arguments="{
-                _name: 'settings.image.reference',
-                _label: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.card.fields.image',
-                _maxitems: 1
-            }" />
+    <f:comment>
+        Due to the images not being detected by impexp-plugin the image configuration has been
+        moved to Configuration/FlexForms/Card.xml
+    </f:comment>
     <flux:field type="input"
                 name="settings.image.width"
                 label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:width"
