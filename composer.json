@@ -33,7 +33,7 @@
         }
     },
     "replace": {
-        "flux_elements": "self.version",
+        "buepro/typo3-flux_elements": "self.version",
         "typo3-ter/flux-elements": "self.version"
     },
     "extra": {
