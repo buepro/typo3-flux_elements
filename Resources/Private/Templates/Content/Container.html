@@ -11,14 +11,14 @@
         <flux:form.option.icon>EXT:flux_elements/Resources/Public/Icons/Container.svg</flux:form.option.icon>
         <flux:field type="select" name="settings.type"
                     label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.type"
-                    config="{items: {
-                0: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.type.simple', 1: 'simple'},
-                1: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.type.fluid', 1: 'fluid'},
-                2: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.type.content', 1: 'content'},
-                3: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.type.cardGroup', 1: 'cardGroup'},
-                4: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.type.cardDeck', 1: 'cardDeck'},
-                5: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.type.cardColumns', 1: 'cardColumns'}
-            }}"
+                    config="{renderType: selectSingle, items: {
+                        0: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.type.simple', 1: 'simple'},
+                        1: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.type.fluid', 1: 'fluid'},
+                        2: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.type.content', 1: 'content'},
+                        3: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.type.cardGroup', 1: 'cardGroup'},
+                        4: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.type.cardDeck', 1: 'cardDeck'},
+                        5: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.type.cardColumns', 1: 'cardColumns'}
+                    }}"
         />
         <flux:field type="input" name="settings.classes" label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.classes" />
         <flux:field type="input" name="settings.attributes" label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.container.fields.attributes" />

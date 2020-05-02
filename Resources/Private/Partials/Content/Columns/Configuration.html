@@ -89,17 +89,17 @@
     <flux:form.sheet name="general" label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:sheet.general">
         <flux:field type="select" name="settings.general.row"
                     label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.general.row"
-                    config="{items: _rowItems}" />
+                    config="{renderType: selectSingle, items: _rowItems}" />
         <v:iterator.loop count="{_columnsCount}" iteration="iterator">
             <f:variable name="_name">settings.general.column{iterator.cycle}</f:variable>
             {f:translate(key: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.general.columnN')
                 -> f:format.printf(arguments: {0: iterator.cycle})
                 -> f:variable(name: '_label')}
-            <flux:field type="select" name="{_name}" label="{_label}" config="{items: _columnItems}" />
+            <flux:field type="select" name="{_name}" label="{_label}" config="{renderType: selectSingle, items: _columnItems}" />
         </v:iterator.loop>
         <flux:field type="select" name="settings.general.screenBreakpoint"
                     label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:screenBreakpoint"
-                    config="{items: _screenBreakpoint, default: 'md'}" />
+                    config="{renderType: selectSingle, items: _screenBreakpoint, default: 'md'}" />
     </flux:form.sheet>
 </f:section>
 

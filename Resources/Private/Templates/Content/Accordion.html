@@ -10,13 +10,13 @@
     <flux:form id="accordion">
         <flux:form.option.icon>EXT:flux_elements/Resources/Public/Icons/Accordion.svg</flux:form.option.icon>
         <flux:field type="select"
-                    config="{items: {
-                0: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:default', 1: null},
-                1: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:primary', 1: 'fe-accordion-primary'},
-                2: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:secondary', 1: 'fe-accordion-secondary'},
-                3: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:complementary', 1: 'fe-accordion-complementary'},
-                4: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:custom', 1: 'fe-accordion-custom'}
-            }}"
+                    config="{renderType: selectSingle, items: {
+                        0: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:default', 1: null},
+                        1: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:primary', 1: 'fe-accordion-primary'},
+                        2: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:secondary', 1: 'fe-accordion-secondary'},
+                        3: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:complementary', 1: 'fe-accordion-complementary'},
+                        4: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:custom', 1: 'fe-accordion-custom'}
+                    }}"
                     name="settings.style"
                     label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:style"
         />
