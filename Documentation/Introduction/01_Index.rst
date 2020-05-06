@@ -47,7 +47,7 @@ Tile unit
 The tile unit flux elements can be used to create panels showing tiles.
 
 Tiles aren't yet supported by the bootstrap framework hence on bare installations won't show up as expected. To get
-started using tile units the `distribution pizpalue <https://extensions.typo3.org/extension/pizpalue>`__ might be
+started using tile units the `extension pizpalue <https://extensions.typo3.org/extension/pizpalue>`__ might be
 checked out.
 
 .. figure:: ../Images/Introduction/TileUnit.jpg

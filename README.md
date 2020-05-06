@@ -29,7 +29,7 @@ been set to `Card deck` and accommodates two card flux elements.
 The tile unit flux elements can be used to create panels showing tiles.
 
 Tiles aren't yet supported by the bootstrap framework hence on bare installations won't show up as expected. To get
-started using tile units the [distribution pizpalue](https://extensions.typo3.org/extension/pizpalue) might be
+started using tile units the [extension pizpalue](https://extensions.typo3.org/extension/pizpalue) might be
 checked out.
 
 ![Tile unit containing tile content elements](Documentation/Images/Introduction/TileUnit.jpg)
@@ -38,5 +38,5 @@ checked out.
 
 - [Documentation from this extension](https://docs.typo3.org/p/buepro/typo3-flux-elements/master/en-us/)
 - [Extension at the TYPO3 extension repository](https://extensions.typo3.org/extension/flux_elements/)
-- [TYPO3 distribution `pizpalue`](https://extensions.typo3.org/extension/pizpalue/) supports tile units.
+- [TYPO3 extension `pizpalue`](https://extensions.typo3.org/extension/pizpalue/) supports tile units.
 - [Fluid powered TYPO3](https://fluidtypo3.org/)

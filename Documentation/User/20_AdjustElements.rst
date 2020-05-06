@@ -43,7 +43,7 @@ Tile unit
 Tile units are used to create a tile view typically showing images. Tile units aren't yet supported by the bootstrap
 framework hence might not show up correctly. For the tile units to work correctly content elements might be adapted to
 render with the desired tile side ratio. These content elements might be provided by an extension (e.g. the
-`distribution pizpalue <https://extensions.typo3.org/extension/pizpalue/>`__ provides various tile layouts for this
+`extension pizpalue <https://extensions.typo3.org/extension/pizpalue/>`__ provides various tile layouts for this
 purpose).
 
 Tile units might be listed or combined together. In this case it can be convenient to collect them in a container. As
