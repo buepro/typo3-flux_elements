@@ -42,7 +42,7 @@ class TableConfigurationPostProcessor implements \TYPO3\CMS\Core\Database\TableC
         }
         // Notifies user regarding the configuration changes
         if ($changedConfigurations) {
-            $languageService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Lang\LanguageService::class);
+            $languageService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Localization\LanguageService::class);
             $text = sprintf(
                 $languageService->sL('LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:be.message.config'),
                 implode(', ', $changedConfigurations)
