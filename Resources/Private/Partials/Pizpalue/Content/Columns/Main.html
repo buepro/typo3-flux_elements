@@ -1,0 +1,40 @@
+<html lang="en" data-namespace-typo3-fluid="true"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="https://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+      xmlns:flux="https://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
+      xmlns:v="https://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+      xmlns:pp="https://typo3.org/ns/Buepro/Pizpalue/ViewHelpers">
+
+{f:variable(name: '_rowCss', value: 'row')}
+{f:variable(name: '_rowCss', value: 'row {settings.general.row}') -> f:if(condition: settings.general.row)}
+{f:variable(name: '_rowCss', value: '') -> f:if(condition: '{settings.general.row} == "none"')}
+{f:variable(name: '_rowCss', value: '{_rowCss} {settings.custom.row.classes}')
+    -> v:format.trim()
+    -> f:if(condition: settings.custom.row.classes)}
+{f:variable(name: '_rowCss', value: '{_rowCss} fe-row-collapse')
+    -> v:format.trim()
+    -> f:if(condition: '{settings.adjustment.collapseRow} == "1"')}
+{f:variable(name: '_rowCss', value: ' {_rowCss}')
+    -> f:if(condition: _rowCss)}
+{f:variable(name: '_additionalRowClass', value: ' {_additionalRowClass}') -> f:if(condition: _additionalRowClass)}
+<div class="fe-row{_additionalRowClass}{_rowCss}">
+    <v:iterator.loop count="{_columnsCount}" iteration="iterator">
+        <f:variable name="_columnSpec">{settings.general.column{iterator.cycle}}</f:variable>
+        {f:variable(name: '_columnCss', value:'col')}
+        {f:variable(name: '_columnCss', value:'{_columnCss}-{settings.general.screenBreakpoint}')
+            -> f:if(condition: '{settings.general.screenBreakpoint} != "none"')}
+        {f:variable(name: '_columnCss', value:'{_columnCss}-{_columnSpec}') -> f:if(condition: _columnSpec)}
+        {f:variable(name: '_columnCss', value:'') -> f:if(condition: '{_columnSpec} == "none"')}
+        <f:variable name="_columnSpec">{settings.custom.column{iterator.cycle}.classes}</f:variable>
+        {f:variable(name: '_columnCss', value:'{_columnCss} {_columnSpec}') -> f:if(condition: _columnSpec)}
+        {f:variable(name: '_columnCss', value:'{_columnCss} fe-col-collapse')
+            -> f:if(condition: '{settings.adjustment.collapseColumns} == "1"')}
+        {_columnCss -> v:format.trim() -> f:variable(name: '_columnCss')}
+        {f:variable(name: '_columnCss', value: ' {_columnCss}') -> f:if(condition: _columnCss)}
+        <pp:render.bootstrap.column class="fe-col{_columnCss}" count="{_columnsCount}">
+            <f:variable name="_area">column{iterator.cycle}</f:variable>
+            <flux:content.render area="{_area}" />
+        </pp:render.bootstrap.column>
+    </v:iterator.loop>
+</div>
+</html>

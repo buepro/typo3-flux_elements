@@ -15,6 +15,19 @@ Installation
 In most cases the extension just needs to be installed (through the extension manager or composer) and no further
 action is required.
 
+In case the templates should be altered or enhanced the static from extension called 'Flux elements' can be included.
+This will allow to define custom template paths through the constant editor.
+
+In case the extension `pizpalue` is used the static `Flux elements - Pizpalue` can be included too. This will enable
+automatic width calculations for image rendering.
+
+.. attention::
+
+   In case the site is using the extension `pizpalue` and the static `Flux elements - Pizpalue` is added the field
+   `Image scaling` in the `Image` tab from the content elements should be reviewed. Since the image dimensions are
+   now calculated automatically the default values might need to be restored.
+
+
 .. note::
 
    Upon installing the extension for the first time the `flux` extension configuration will be altered. Please consult

@@ -1,0 +1,7 @@
+plugin.tx_fluxelements {
+    view {
+        partialRootPaths {
+            200623 = EXT:flux_elements/Resources/Private/Partials/Pizpalue/
+        }
+    }
+}

@@ -15,4 +15,9 @@ defined('TYPO3_MODE') || die('Access denied.');
         'Configuration/TypoScript',
         'Flux elements'
     );
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
+        'flux_elements',
+        'Configuration/TypoScript/Pizpalue',
+        'Flux elements - Pizpalue'
+    );
 })();

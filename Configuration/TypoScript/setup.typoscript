@@ -1,10 +1,10 @@
-plugin.tx_flux_elements {
+plugin.tx_fluxelements {
     view {
         templateRootPaths.0 = EXT:flux_elements/Resources/Private/Templates/
-        templateRootPaths.1 = {$plugin.tx_flux_elements.view.templateRootPath}
+        templateRootPaths.999999 = {$plugin.tx_flux_elements.view.templateRootPath}
         partialRootPaths.0 = EXT:flux_elements/Resources/Private/Partials/
-        partialRootPaths.1 = {$plugin.tx_flux_elements.view.partialRootPath}
+        partialRootPaths.999999 = {$plugin.tx_flux_elements.view.partialRootPath}
         layoutRootPaths.0 = EXT:flux_elements/Resources/Private/Layouts/
-        layoutRootPaths.1 = {$plugin.tx_flux_elements.view.layoutRootPath}
+        layoutRootPaths.999999 = {$plugin.tx_flux_elements.view.layoutRootPath}
     }
 }
