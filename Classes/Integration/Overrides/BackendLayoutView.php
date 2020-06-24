@@ -24,22 +24,25 @@ class BackendLayoutView extends \FluidTYPO3\Flux\Integration\Overrides\BackendLa
      */
     public function colPosListItemProcFunc(array $parameters, $ref = null)
     {
+        // The resulting item list
+        $items = [];
+        // Get entries from gridelements
         if (ExtensionManagementUtility::isLoaded('gridelements')) {
-            // Gets entries from gridelements
             GeneralUtility::callUserFunction(
                 \GridElementsTeam\Gridelements\Backend\ItemsProcFuncs\ColPosList::class . '->itemsProcFunc',
                 $parameters,
                 $ref
             );
-        } else {
-            // Gets entries from core
-            GeneralUtility::callUserFunction(
-                \TYPO3\CMS\Backend\View\BackendLayoutView::class . '->colPosListItemProcFunc',
-                $parameters,
-                $ref
-            );
+            $items = $parameters['items'];
         }
-        // Gets entries from flux
+        // Get entries from flux
         parent::colPosListItemProcFunc($parameters);
+        // Merge items
+        foreach ($parameters['items'] as $item) {
+            if (!in_array($item, $items)) {
+                $items[] = $item;
+            }
+        }
+        $parameters['items'] = $items;
     }
 }

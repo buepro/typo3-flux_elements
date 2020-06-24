@@ -53,6 +53,9 @@ for the `colPos` field from `tt_content` in the configuration module. It should 
 
    TCA setting for itemsProcFunc
 
+In case the value from `itemsProcFunc` isn't correct it can be tried to change the execution order from `TCA/Overrides`
+scripts by reinstall `flux_elements` (`TCA/Overrides/tt_content.php` should be executed last).
+
 Update
 ======
 
