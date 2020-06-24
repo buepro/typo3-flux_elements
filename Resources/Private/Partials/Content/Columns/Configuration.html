@@ -34,9 +34,7 @@
     <flux:grid.row>
         <v:iterator.loop count="{_columnsCount}" iteration="iterator">
             <f:variable name="_name">column{iterator.cycle}</f:variable>
-            {'Column %s'
-                -> f:format.printf(arguments: {0: iterator.cycle})
-                -> f:variable(name: '_label')}
+            {f:format.printf(value: 'Column %s', arguments: {0: iterator.cycle}) -> f:variable(name: '_label')}
             <flux:grid.column name="{_name}" colPos="{iterator.cycle}" label="{_label}" />
         </v:iterator.loop>
     </flux:grid.row>
@@ -89,17 +87,15 @@
     <flux:form.sheet name="general" label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:sheet.general">
         <flux:field type="select" name="settings.general.row"
                     label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.general.row"
-                    config="{renderType: selectSingle, items: _rowItems}" />
+                    config="{renderType: 'selectSingle', items: _rowItems}" />
         <v:iterator.loop count="{_columnsCount}" iteration="iterator">
             <f:variable name="_name">settings.general.column{iterator.cycle}</f:variable>
-            {'Column %s'
-                -> f:format.printf(arguments: {0: iterator.cycle})
-                -> f:variable(name: '_label')}
-            <flux:field type="select" name="{_name}" label="{_label}" config="{renderType: selectSingle, items: _columnItems}" />
+            {f:format.printf(value: 'Column %s', arguments: {0: iterator.cycle}) -> f:variable(name: '_label')}
+            <flux:field type="select" name="{_name}" label="{_label}" config="{renderType: 'selectSingle', items: _columnItems}" />
         </v:iterator.loop>
         <flux:field type="select" name="settings.general.screenBreakpoint"
                     label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:screenBreakpoint"
-                    config="{renderType: selectSingle, items: _screenBreakpoint, default: 'md'}" />
+                    config="{renderType: 'selectSingle', items: _screenBreakpoint, default: 'md'}" />
     </flux:form.sheet>
 </f:section>
 
@@ -115,9 +111,7 @@
                     }" />
         <v:iterator.loop count="{_columnsCount}" iteration="iterator">
             <f:variable name="_name">settings.custom.column{iterator.cycle}.classes</f:variable>
-            {'Column %s classes'
-                -> f:format.printf(arguments: {0: iterator.cycle})
-                -> f:variable(name: '_label')}
+            {f:format.printf(value: 'Column %s classes', arguments: {0: iterator.cycle}) -> f:variable(name: '_label')}
             <flux:field type="input" name="{_name}" label="{_label}"
                         config="{
                             default: _fieldDefaults.custom.columns.classes
