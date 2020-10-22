@@ -85,15 +85,15 @@
         4: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:screenBreakpoint.xl', 1: 'xl'}
     }" />
     <flux:form.sheet name="general" label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:sheet.general">
-        <flux:field type="select" name="settings.general.row"
+        <flux:field type="select" name="settings.general.row" exclude="0"
                     label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.general.row"
                     config="{renderType: 'selectSingle', items: _rowItems}" />
         <v:iterator.loop count="{_columnsCount}" iteration="iterator">
             <f:variable name="_name">settings.general.column{iterator.cycle}</f:variable>
             {f:format.printf(value: 'Column %s', arguments: {0: iterator.cycle}) -> f:variable(name: '_label')}
-            <flux:field type="select" name="{_name}" label="{_label}" config="{renderType: 'selectSingle', items: _columnItems}" />
+            <flux:field type="select" name="{_name}" label="{_label}" config="{renderType: 'selectSingle', items: _columnItems}" exclude="0" />
         </v:iterator.loop>
-        <flux:field type="select" name="settings.general.screenBreakpoint"
+        <flux:field type="select" name="settings.general.screenBreakpoint" exclude="0"
                     label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:screenBreakpoint"
                     config="{renderType: 'selectSingle', items: _screenBreakpoint, default: 'md'}" />
     </flux:form.sheet>
@@ -103,7 +103,7 @@
     <flux:form.sheet name="custom" label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:sheet.custom">
         {f:variable(name: '_rowDefaultClasses', value: 'fe-tiles no-gutters')
             -> f:if(condition: '{settings.general.type} == "tile"')}
-        <flux:field type="input"
+        <flux:field type="input" exclude="0"
                     name="settings.custom.row.classes"
                     label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.custom.rowClasses"
                     config="{
@@ -112,7 +112,7 @@
         <v:iterator.loop count="{_columnsCount}" iteration="iterator">
             <f:variable name="_name">settings.custom.column{iterator.cycle}.classes</f:variable>
             {f:format.printf(value: 'Column %s classes', arguments: {0: iterator.cycle}) -> f:variable(name: '_label')}
-            <flux:field type="input" name="{_name}" label="{_label}"
+            <flux:field type="input" name="{_name}" label="{_label}" exclude="0"
                         config="{
                             default: _fieldDefaults.custom.columns.classes
                         }" />
@@ -126,10 +126,10 @@
         {f:variable(name: '_collapseRow', value: 1) -> v:condition.variable.isNull(value: _fieldDefaults.adjust.collapseRow)}
         {f:variable(name: '_collapseColumns', value: _fieldDefaults.adjust.collapseColumns)}
         {f:variable(name: '_collapseColumns', value: 1) -> v:condition.variable.isNull(value: _fieldDefaults.adjust.collapseColumns)}
-        <flux:field type="check" name="settings.adjustment.collapseRow"
+        <flux:field type="check" name="settings.adjustment.collapseRow" exclude="0"
                     label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.adjustment.collapseRow"
                     config="{default: _collapseRow}" />
-        <flux:field type="check" name="settings.adjustment.collapseColumns"
+        <flux:field type="check" name="settings.adjustment.collapseColumns" exclude="0"
                     label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:columns.adjustment.collapseColumns"
                     config="{default: _collapseColumns}" />
     </flux:form.sheet>

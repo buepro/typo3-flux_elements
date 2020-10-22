@@ -5,11 +5,11 @@
       xmlns:v="https://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers">
 
 <flux:form.sheet name="text" label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:sheet.text">
-    <flux:field type="input"
+    <flux:field type="input" exclude="0"
                 name="settings.title.text"
                 label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.card.fields.title"
     />
-    <flux:field type="select"
+    <flux:field type="select" exclude="0"
                 name="settings.title.layout"
                 label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.card.fields.title.layout"
                 config="{renderType: 'selectSingle', default: 'h2', items: {
@@ -21,7 +21,7 @@
                             5: {0: 'H6',1: 'h6'}
                         }}"
     />
-    <flux:field type="select"
+    <flux:field type="select" exclude="0"
                 name="settings.title.position"
                 label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.card.fields.title.position"
                 config="{renderType: 'selectSingle', items: {
@@ -31,26 +31,26 @@
                             3: {0: 'LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:right',1: 'right'}
                         }}"
     />
-    <flux:field type="input"
+    <flux:field type="input" exclude="0"
                 name="settings.title.link"
                 label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.card.fields.title.link"
                 config="{renderType: 'inputLink'}"
     />
-    <flux:field type="text"
+    <flux:field type="text" exclude="0"
                 name="settings.text"
                 label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.card.fields.text"
                 config="{enableRichtext: 'true'}"
     />
     <flux:form.section name="settings.borders" label="Header/Footer">
         <flux:form.object name="header" label="Header">
-            <flux:field type="text"
+            <flux:field type="text" exclude="0"
                         name="text"
                         label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.card.fields.text"
                         config="{enableRichtext: 'true', rows: 3}"
             />
         </flux:form.object>
         <flux:form.object name="footer" label="Footer">
-            <flux:field type="text"
+            <flux:field type="text" exclude="0"
                         name="text"
                         label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.card.fields.text"
                         config="{enableRichtext: 'true'}"
