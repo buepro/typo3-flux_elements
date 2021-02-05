@@ -222,6 +222,9 @@
 			<trans-unit id="flux.accordion.description">
 				<source>Accordion to show any kind of content elements.</source>
 			</trans-unit>
+			<trans-unit id="flux.accordion.activeItemIndex">
+				<source>Active item index</source>
+			</trans-unit>
 
 			<trans-unit id="flux.tabs">
 				<source>Tabs</source>

@@ -20,6 +20,11 @@
                     name="settings.style"
                     label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:style"
         />
+        <flux:field type="input" exclude="0"
+                    config="{size: 3, eval: 'trim, int', default: 1}"
+                    name="settings.activeItemIndex"
+                    label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.accordion.activeItemIndex"
+        />
     </flux:form>
     <flux:grid>
         <flux:grid.row>
@@ -30,16 +35,18 @@
 
 <f:section name="Main">
     {flux:content.get(area: 'content', render: 0) -> f:variable(name: '_items')}
+    {f:variable(name: '_activeItemIndex', value: settings.activeItemIndex)}
+    {f:variable(name: '_activeItemIndex', value: 1) -> v:condition.variable.isNull(value: _activeItemIndex)}
     <div class="fe-accordion accordion{f:if(condition: settings.style, then: ' {settings.style}')}"
          id="accordion-{record.uid}">
         <f:for each="{_items}" as="_item" iteration="iterator">
             <div class="accordion-item card">
                 <div id="accordion-heading-{_item.uid}" class="accordion-header card-header">
                     <h4 class="accordion-title">
-                        <a class="accordion-title-link {f:if(condition:'{iterator.index}!=0', then:'collapsed')}"
+                        <a class="accordion-title-link {f:if(condition:'{iterator.cycle} != {_activeItemIndex}', then:'collapsed')}"
                            href="#accordion-{_item.uid}"
                            data-toggle="collapse" data-parent="#accordion-{record.uid}"
-                           aria-expand="{f:if(condition:'{iterator.index}==0', then:'true', else:'false')}"
+                           aria-expand="{f:if(condition:'{iterator.cycle} == {_activeItemIndex}', then:'true', else:'false')}"
                            aria-controls="accordion-{_item.uid}">
                             <span class="accordion-title-link-text">{_item.header}</span>
                             <span class="accordion-title-link-state"></span>
@@ -47,7 +54,7 @@
                     </h4>
                 </div>
                 <div id="accordion-{_item.uid}"
-                     class="accordion-collapse collapse {f:if(condition:'{iterator.index}==0', then:'show')}"
+                     class="accordion-collapse collapse {f:if(condition:'{iterator.cycle} == {_activeItemIndex}', then:'show')}"
                      aria-labelledby="accordion-heading-{_item.uid}"
                      data-parent="#accordion-{record.uid}">
                     <div class="fe-accordion-body accordion-body card-body">
