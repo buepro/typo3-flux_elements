@@ -7,7 +7,7 @@
  * LICENSE file that was distributed with this source code.
  */
 
-defined('TYPO3_MODE') || die('Access denied.');
+defined('TYPO3') || die('Access denied.');
 
 (function () {
 
@@ -22,10 +22,8 @@ defined('TYPO3_MODE') || die('Access denied.');
     /**
      * Registers hook to modify TCA (after flux modified it)
      */
-    if (TYPO3_MODE === 'BE') {
-        $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['GLOBAL']['extTablesInclusion-PostProcessing']['flux_elements'] =
-            \Buepro\FluxElements\Integration\HookSubscribers\TableConfigurationPostProcessor::class;
-    }
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['GLOBAL']['extTablesInclusion-PostProcessing']['flux_elements'] =
+        \Buepro\FluxElements\Integration\HookSubscribers\TableConfigurationPostProcessor::class;
 
     /**
      * Upgrade wizards

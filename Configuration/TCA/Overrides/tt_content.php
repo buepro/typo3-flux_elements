@@ -7,7 +7,7 @@
  * LICENSE file that was distributed with this source code.
  */
 
-defined('TYPO3_MODE') || die('Access denied.');
+defined('TYPO3') || die('Access denied.');
 
 // Correct colPos entries (merge entries from core, gridelements and flux)
 $GLOBALS['TCA']['tt_content']['columns']['colPos']['config']['itemsProcFunc'] =

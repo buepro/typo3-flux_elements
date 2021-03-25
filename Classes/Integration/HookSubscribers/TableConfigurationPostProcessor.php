@@ -9,6 +9,9 @@
 
 namespace Buepro\FluxElements\Integration\HookSubscribers;
 
+use Psr\Http\Message\ServerRequestInterface;
+use TYPO3\CMS\Core\Http\ApplicationType;
+
 class TableConfigurationPostProcessor implements \TYPO3\CMS\Core\Database\TableConfigurationPostProcessingHookInterface
 {
     /**
@@ -110,14 +113,18 @@ class TableConfigurationPostProcessor implements \TYPO3\CMS\Core\Database\TableC
      */
     public function processData()
     {
-        $this->reviewFluxConfiguration();
-        $this->adjustContentElementTypeSelector();
-        $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-            \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
-        );
-        $fluxElementsConfiguration = $extensionConfiguration->get('flux_elements');
-        if ($fluxElementsConfiguration['disableFluxPageLayoutSelector'] === '1') {
-            $this->disableFluxPageLayouts();
+        if (($GLOBALS['TYPO3_REQUEST'] ?? null) instanceof ServerRequestInterface
+            && ApplicationType::fromRequest($GLOBALS['TYPO3_REQUEST'])->isBackend()
+        ) {
+            $this->reviewFluxConfiguration();
+            $this->adjustContentElementTypeSelector();
+            $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+                \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
+            );
+            $fluxElementsConfiguration = $extensionConfiguration->get('flux_elements');
+            if ($fluxElementsConfiguration['disableFluxPageLayoutSelector'] === '1') {
+                $this->disableFluxPageLayouts();
+            }
         }
     }
 }
