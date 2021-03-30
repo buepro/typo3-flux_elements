@@ -21,7 +21,7 @@
     ],
     "license": ["GPL-2.0-or-later"],
     "require": {
-        "typo3/cms-core": "^10.4.11 || dev-master",
+        "typo3/cms-core": "^10.4.11 || ^11.1@dev || dev-master",
         "fluidtypo3/flux": "^9 || dev-master || dev-development"
     },
     "require-dev": {
@@ -39,6 +39,9 @@
     "extra": {
         "typo3/cms": {
             "extension-key": "flux_elements"
+        },
+        "branch-alias": {
+            "dev-master": "1.x-dev"
         }
     }
 }
