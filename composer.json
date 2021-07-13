@@ -22,7 +22,8 @@
     "license": ["GPL-2.0-or-later"],
     "require": {
         "typo3/cms-core": "^10.4.11 || ^11.1@dev || dev-master",
-        "fluidtypo3/flux": "^9 || dev-master || dev-development"
+        "fluidtypo3/flux": "^9 || dev-master || dev-development",
+        "fluidtypo3/vhs": "^6.0.5"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master"
