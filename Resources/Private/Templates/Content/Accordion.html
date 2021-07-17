@@ -25,6 +25,17 @@
                     name="settings.activeItemIndex"
                     label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.accordion.activeItemIndex"
         />
+        <flux:field type="select" exclude="0"
+                    config="{renderType: 'selectSingle', default: 4, items: {
+                        1: {0: 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.1', 1: 1},
+                        2: {0: 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.2', 1: 2},
+                        3: {0: 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.3', 1: 3},
+                        4: {0: 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.4', 1: 4},
+                        5: {0: 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.5', 1: 5}
+                    }}"
+                    name="settings.headerLayout"
+                    label="LLL:EXT:flux_elements/Resources/Private/Language/locallang.xlf:flux.accordion.headerLayout"
+        />
     </flux:form>
     <flux:grid>
         <flux:grid.row>
@@ -37,12 +48,13 @@
     {flux:content.get(area: 'content', render: 0) -> f:variable(name: '_items')}
     {f:variable(name: '_activeItemIndex', value: settings.activeItemIndex)}
     {f:variable(name: '_activeItemIndex', value: 1) -> v:condition.variable.isNull(value: _activeItemIndex)}
+    {f:if(condition: settings.headerLayout, then: settings.headerLayout, else: '4') -> f:variable(name: '_headingLayout')}
     <div class="fe-accordion accordion{f:if(condition: settings.style, then: ' {settings.style}')}"
          id="accordion-{record.uid}">
         <f:for each="{_items}" as="_item" iteration="iterator">
             <div class="accordion-item card">
                 <div id="accordion-heading-{_item.uid}" class="accordion-header card-header">
-                    <h4 class="accordion-title">
+                    <h{_headingLayout} class="accordion-title">
                         {f:variable(name: '_expand', value: 'false')}
                         {f:variable(name: '_expand', value: 'true') -> f:if(condition:'{iterator.cycle} == {_activeItemIndex}')}
                         <f:link.page
@@ -51,7 +63,7 @@
                             data="{toggle: 'collapse', parent: '#accordion-{record.uid}'}"
                             additionalAttributes="{aria-expand: _expand, aria-controls: 'accordion-{_item.uid}'}"
                         ><span class="accordion-title-link-text">{_item.header}</span><span class="accordion-title-link-state"></span></f:link.page>
-                    </h4>
+                    </h{_headingLayout}>
                 </div>
                 <div id="accordion-{_item.uid}"
                      class="accordion-collapse collapse {f:if(condition:'{iterator.cycle} == {_activeItemIndex}', then:'show')}"

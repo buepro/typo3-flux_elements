@@ -225,6 +225,9 @@
 			<trans-unit id="flux.accordion.activeItemIndex">
 				<source>Active item index</source>
 			</trans-unit>
+			<trans-unit id="flux.accordion.headerLayout">
+				<source>Header type</source>
+			</trans-unit>
 
 			<trans-unit id="flux.tabs">
 				<source>Tabs</source>
