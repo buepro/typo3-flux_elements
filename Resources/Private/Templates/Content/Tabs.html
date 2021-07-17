@@ -36,15 +36,15 @@
         <ul class="nav nav-tabs" role="tablist">
             <f:for each="{_items}" as="_item" iteration="iterator">
                 <li class="nav-item">
-                    <a id="tab-{_item.uid}"
-                       class="nav-link {f:if(condition:'{iterator.index}==0',then:'active')}"
-                       href="#tab-content-{_item.uid}"
-                       data-toggle="tab"
-                       role="tab"
-                       aria-controls="tab-content-{_item.uid}"
-                       aria-selected="{f:if(condition:'{iterator.index}==0',then:'true',else:'false')}">
-                        {_item.header}
-                    </a>
+                    {f:variable(name: '_selected', value: 'false')}
+                    {f:variable(name: '_selected', value: 'true') -> f:if(condition:'{iterator.index}==0')}
+                    <f:link.page
+                        id="tab-{_item.uid}"
+                        class="nav-link {f:if(condition:'{iterator.index}==0',then:'active')}"
+                        section="tab-content-{_item.uid}"
+                        data="{toggle: 'tab'}"
+                        additionalAttributes="{role: 'tab', aria-controls: 'tab-content-{_item.uid}', aria-selected: _selected}"
+                    >{_item.header}</f:link.page>
                 </li>
             </f:for>
         </ul>
