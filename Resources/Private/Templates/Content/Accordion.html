@@ -55,13 +55,13 @@
             <div class="accordion-item card">
                 <div id="accordion-heading-{_item.uid}" class="accordion-header card-header">
                     <h{_headingLayout} class="accordion-title">
-                        {f:variable(name: '_expand', value: 'false')}
-                        {f:variable(name: '_expand', value: 'true') -> f:if(condition:'{iterator.cycle} == {_activeItemIndex}')}
+                        {f:variable(name: '_expanded', value: 'false')}
+                        {f:variable(name: '_expanded', value: 'true') -> f:if(condition:'{iterator.cycle} == {_activeItemIndex}')}
                         <f:link.page
                             class="accordion-title-link {f:if(condition:'{iterator.cycle} != {_activeItemIndex}', then:'collapsed')}"
                             section="accordion-{_item.uid}"
                             data="{toggle: 'collapse', parent: '#accordion-{record.uid}'}"
-                            additionalAttributes="{aria-expand: _expand, aria-controls: 'accordion-{_item.uid}'}"
+                            additionalAttributes="{aria-expanded: _expanded, aria-controls: 'accordion-{_item.uid}'}"
                         ><span class="accordion-title-link-text">{_item.header}</span><span class="accordion-title-link-state"></span></f:link.page>
                     </h{_headingLayout}>
                 </div>
