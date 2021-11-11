@@ -1,3 +1,13 @@
+> **ATTENTION:**
+>
+> This extension is further maintained by community support. Please contact the [author](mailto:info@buechler.pro)
+> if you are interested in further development and bug fixes on a commercial basis.
+>
+> As an alternative the extension [container_elements](https://github.com/buepro/typo3-container_elements)
+> could be used. It provides similar functionality using [container](https://github.com/b13/container).
+
+<br />
+
 # TYPO3 flux_elements
 
 This [TYPO3](https://typo3.org/) extension provides elements to further structure the content area. It is powered

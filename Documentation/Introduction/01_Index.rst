@@ -7,6 +7,14 @@
 Introduction
 ============
 
+.. note::
+
+   This extension is further maintained by community support. Please contact the `author <mailto:info@buechler.pro>`__
+   if you are interested in further development and bug fixes on a commercial basis.
+
+   As an alternative the extension `container_elements <https://github.com/buepro/typo3-container_elements>`__
+   could be used. It provides similar functionality using `container <https://github.com/b13/container>`__.
+
 What it does
 ============
 
